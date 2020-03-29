@@ -32,6 +32,14 @@ def send_welcome(message):
 def send_help(message):
     bot.reply_to(message, 'lihat update penyebaran virus corona dengan cara kirkm @namawilayah contoh @indonesa')
 
+@bot.message_handler(commands=['indonesia'])
+def indonesia_info(message):
+    get_info_covid19 = requests.get("https://api.kawalcorona.com/indonesia").json()
+    heder = "\033 Update covid19 \033 \n \n"
+    for data in get_info_covid19:
+        bot.reply_to(message, heder + " \n Wilayah :" + data['name'] + "\n positif : " + data['positif']  + "\n Sembuh : " + data['sembuh'] + "\n meninggal :" + data['meninggal'])
+
+
 @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
 def at_answer(message):
     texts = message.text.split()
