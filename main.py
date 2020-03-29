@@ -30,7 +30,7 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['help'])
 def send_help(message):
-    bot.reply_to(message, 'lihat update penyebaran virus corona dengan cara kirkm @namawilayah contoh @indonesa')
+    bot.reply_to(message, 'lihat update penyebaran virus corona dengan cara kirkm /namawilayah contoh /indonesa')
 
 @bot.message_handler(commands=['indonesia'])
 def indonesia_info(message):
